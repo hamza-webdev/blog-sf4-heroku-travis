@@ -9,11 +9,14 @@
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/httplug-bundle": "^1.8",
         "sensio/framework-extra-bundle": "^5.1",
+        "symfony/apache-pack": "^1.0",
         "symfony/console": "^4.0",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.0",
         "symfony/lts": "^4@dev",
+        "symfony/monolog-bundle": "^3.5",
         "symfony/orm-pack": "^1.0",
+        "symfony/phpunit-bridge": "^5.0",
         "symfony/security-bundle": "^4.0",
         "symfony/twig-bundle": "^4.0",
         "symfony/validator": "^4.0",
@@ -58,6 +61,12 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ], 
+        "compile": [
+            "php bin/console cache:warmup",
+            "php bin/console doctrine:schema:update --force",
+            "yarn install",
+            "yarn run encore production"
         ]
     },
     "conflict": {
@@ -66,7 +75,7 @@
     "extra": {
         "symfony": {
             "id": "01C7ERQK39YTRNEJ4Y017EPNTJ",
-            "allow-contrib": false
+            "allow-contrib": true
         }
     }
 }
