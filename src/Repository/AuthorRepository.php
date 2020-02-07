@@ -4,7 +4,10 @@ namespace App\Repository;
 
 use App\Entity\Author;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+//use Symfony\Bridge\Doctrine\RegistryInterface;
+
+// use Doctrine\Common\Persistence\ManagerRegistry;
+
 
 /**
  * @method Author|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,9 +17,9 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class AuthorRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    public function __construct()
     {
-        parent::__construct($registry, Author::class);
+        // parent::__construct($registry, Author::class);
     }
 
     /*
